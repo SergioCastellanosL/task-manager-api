@@ -8,7 +8,6 @@ const {sendWelcomeEmail, sendCancelationEmail} = require('../emails/account')
 
 router.post('/users', async (req, res)=>{
     const user = new User(req.body)
-    console.log('User created'+user)
     try{
         await user.save()
         sendWelcomeEmail(user.email, user.name)
